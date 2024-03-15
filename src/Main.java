@@ -5,12 +5,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to the Gasoline Price Calculator!\n" +
-                "Please choose which type of gasoline your vehicle takes\n" +
-                "Regular, Plus, Premium, or Diesel: ");
-        String input = scan.nextLine();
-
         while(true) {
+            System.out.println("Welcome to the Gasoline Price Calculator!\n" +
+                    "Please choose which type of gasoline your vehicle takes\n" +
+                    "Regular, Plus, Premium, or Diesel. When you are done enter Exit: ");
+            String input = scan.nextLine();
+
+            if(input.equals("Exit")) {
+                System.out.println("Exiting the program. Goodbye!");
+                return;
+            }
+
             switch(input) {
 
                 case "Regular":
@@ -27,6 +32,10 @@ public class Main {
 
                 case "Diesel":
                     calculatedPriceOfDiesel();
+                    break;
+
+                default:
+                    System.out.println("Invalid. Must choose from provided options");
                     break;
             }
         }
