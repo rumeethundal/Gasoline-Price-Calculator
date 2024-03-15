@@ -17,6 +17,7 @@ public class Main {
                     break;
 
                 case "Plus":
+                    calculatedPriceOfPlus();
                     break;
 
                 case "Preimium":
@@ -29,9 +30,16 @@ public class Main {
     }
     public static void calculatePriceOfRegular() {
         double regularPricePerGallon = 4.879;
-        System.out.println("How many gallon do you need?");
+        System.out.println("How many gallons do you need?");
         int gallonsOfRegularNeeded = scan.nextInt();
         double totalPriceOfRegular = regularPricePerGallon * gallonsOfRegularNeeded;
         System.out.println("Your total price is: " + "$" + totalPriceOfRegular);
+    }
+    public static void calculatedPriceOfPlus() {
+        double plusPricePerGallon = 5.098;
+        System.out.println("How many gallons do you need?");
+        int gallonsPlusOfNeeded = scan.nextInt();
+        double totalPriceOfPlus = plusPricePerGallon * gallonsPlusOfNeeded;
+        System.out.println("Your total price is:" + "$" + totalPriceOfPlus);
     }
 }
