@@ -12,6 +12,7 @@ public class Main {
 
         while(true) {
             switch(input) {
+
                 case "Regular":
                     calculatePriceOfRegular();
                     break;
@@ -20,10 +21,12 @@ public class Main {
                     calculatedPriceOfPlus();
                     break;
 
-                case "Preimium":
+                case "Premium":
+                    calculatedPriceOfPremium();
                     break;
 
                 case "Diesel":
+                    calculatedPriceOfDiesel();
                     break;
             }
         }
@@ -36,10 +39,24 @@ public class Main {
         System.out.println("Your total price is: " + "$" + totalPriceOfRegular);
     }
     public static void calculatedPriceOfPlus() {
-        double plusPricePerGallon = 5.098;
+        double plusPricePerGallon = 5.10;
         System.out.println("How many gallons do you need?");
-        int gallonsPlusOfNeeded = scan.nextInt();
-        double totalPriceOfPlus = plusPricePerGallon * gallonsPlusOfNeeded;
+        int gallonsOfPlusOfNeeded = scan.nextInt();
+        double totalPriceOfPlus = plusPricePerGallon * gallonsOfPlusOfNeeded;
         System.out.println("Your total price is:" + "$" + totalPriceOfPlus);
+    }
+    public static void calculatedPriceOfPremium() {
+        double premiumPricePerGallon = 5.26;
+        System.out.println("How many gallons do you need?");
+        int gallonsOfPremiumNeeded = scan.nextInt();
+        double totalPriceOfPremium = premiumPricePerGallon * gallonsOfPremiumNeeded;
+        System.out.println("Your total price is:" + "$" + totalPriceOfPremium);
+    }
+    public static void calculatedPriceOfDiesel() {
+        double dieselPricePerGallon = 5.39;
+        System.out.println("How many gallons do you need?");
+        int gallonsOfDieselNeeded = scan.nextInt();
+        double totalPriceOfDiesel = dieselPricePerGallon * gallonsOfDieselNeeded;
+        System.out.println("Your total price is: " + "$" + totalPriceOfDiesel);
     }
 }
