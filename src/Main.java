@@ -15,6 +15,15 @@ public class Main {
                 System.out.println("Exiting the program. Goodbye!");
                 return;
             }
+            else if(input.equals("exit")) {
+                input = Character.toUpperCase(input.charAt(0)) + input.substring(1);
+                System.out.println("Exiting the program. Goodbye!");
+                return;
+            }
+
+            if(input.equals("regular") || input.equals("plus") || (input.equals("premium") || input.equals("diesel"))) {
+                input = Character.toUpperCase(input.charAt(0)) + input.substring(1);
+            }
 
             switch(input) {
 
@@ -36,12 +45,11 @@ public class Main {
 
                 default:
                     System.out.println("Invalid. Must choose from provided options");
-                    break;
             }
         }
     }
     public static void calculatePriceOfRegular() {
-        double regularPricePerGallon = 4.879;
+        double regularPricePerGallon = 4.88;
         System.out.println("How many gallons do you need?");
         int gallonsOfRegularNeeded = scan.nextInt();
         double totalPriceOfRegular = regularPricePerGallon * gallonsOfRegularNeeded;
