@@ -5,46 +5,37 @@ public class Main {
 
     public static void main(String[] args) {
 
-        while(true) {
+        while (true) {
             System.out.println("Welcome to the Gasoline Price Calculator!\n" +
-                    "Please choose which type of gasoline your vehicle takes\n" +
-                    "Regular, Plus, Premium, or Diesel. When you are done enter Exit: ");
-            String input = scan.nextLine();
+                    "Please choose which type of gasoline your vehicle takes, or exit\n" +
+                    "Regular, Plus, Premium, Diesel, or Exit: ");
 
-            if(input.equals("Exit")) {
-                System.out.println("Exiting the program. Goodbye!");
-                return;
-            }
-            else if(input.equals("exit")) {
-                input = Character.toUpperCase(input.charAt(0)) + input.substring(1);
+            String input = scan.nextLine().toLowerCase();
+
+            if (input.equals("exit")) {
                 System.out.println("Exiting the program. Goodbye!");
                 return;
             }
 
-            if(input.equals("regular") || input.equals("plus") || (input.equals("premium") || input.equals("diesel"))) {
-                input = Character.toUpperCase(input.charAt(0)) + input.substring(1);
+            if (!input.equals("regular") && !input.equals("plus") && !input.equals("premium") && !input.equals("diesel")) {
+                System.out.println("Invalid. Must choose from provided options\n");
+                continue;
             }
 
-            switch(input) {
+            switch (input) {
 
-                case "Regular":
+                case "regular":
                     calculatePriceOfRegular();
                     break;
-
-                case "Plus":
+                case "plus":
                     calculatedPriceOfPlus();
                     break;
-
-                case "Premium":
+                case "premium":
                     calculatedPriceOfPremium();
                     break;
-
-                case "Diesel":
+                case "diesel":
                     calculatedPriceOfDiesel();
                     break;
-
-                default:
-                    System.out.println("Invalid. Must choose from provided options");
             }
         }
     }
@@ -52,28 +43,37 @@ public class Main {
         double regularPricePerGallon = 4.88;
         System.out.println("How many gallons do you need?");
         int gallonsOfRegularNeeded = scan.nextInt();
+        scan.nextLine();
         double totalPriceOfRegular = regularPricePerGallon * gallonsOfRegularNeeded;
-        System.out.println("Your total price is: " + "$" + totalPriceOfRegular);
+        printTotal(totalPriceOfRegular);
     }
     public static void calculatedPriceOfPlus() {
         double plusPricePerGallon = 5.10;
         System.out.println("How many gallons do you need?");
         int gallonsOfPlusOfNeeded = scan.nextInt();
+        scan.nextLine();
         double totalPriceOfPlus = plusPricePerGallon * gallonsOfPlusOfNeeded;
-        System.out.println("Your total price is:" + "$" + totalPriceOfPlus);
+        printTotal(totalPriceOfPlus);
     }
     public static void calculatedPriceOfPremium() {
         double premiumPricePerGallon = 5.26;
         System.out.println("How many gallons do you need?");
         int gallonsOfPremiumNeeded = scan.nextInt();
+        scan.nextLine();
         double totalPriceOfPremium = premiumPricePerGallon * gallonsOfPremiumNeeded;
-        System.out.println("Your total price is:" + "$" + totalPriceOfPremium);
+        printTotal(totalPriceOfPremium);
     }
     public static void calculatedPriceOfDiesel() {
         double dieselPricePerGallon = 5.39;
         System.out.println("How many gallons do you need?");
         int gallonsOfDieselNeeded = scan.nextInt();
+        scan.nextLine();
         double totalPriceOfDiesel = dieselPricePerGallon * gallonsOfDieselNeeded;
-        System.out.println("Your total price is: " + "$" + totalPriceOfDiesel);
+        printTotal(totalPriceOfDiesel);
+    }
+
+    public static void printTotal(double totalPrice) {
+        System.out.printf("Your total price is:  $%.2f",totalPrice);
+        System.out.println("\n----------------------------------------- \n");
     }
 }
